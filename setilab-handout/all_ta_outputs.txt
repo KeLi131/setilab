@@ -1,0 +1,308 @@
+type:     Binary
+file:     /home/cs213lab/HANDOUT/alien_msg.sig
+Fs:       400000.000000 Hz
+order:    32
+bands:    16
+threads:  1
+procs:    1
+Load or map file
+Read 12000000 samples
+work: [16]
+ginfo.block: [0, 16]
+Removing DC component of -0.000372
+signal average power:     1.904742
+(0) Resource usages (thread 0):
+(0) User time        11.200080 seconds
+(0) System time      0.006572 seconds
+(0) Page faults      1349
+(0) Page swaps       0
+(0) Blocks of I/O    0
+(0) Signals caught   0
+(0) Context switches 33
+    0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
+    1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
+    2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
+    3         37500.000100 to         49999.999900 Hz:             0.002837 *(meh)
+    4         50000.000100 to         62499.999900 Hz:             0.000835 *(meh)
+
+    5         62500.000100 to         74999.999900 Hz:             0.000040 *(meh)
+
+    6         75000.000100 to         87499.999900 Hz:             0.000020 *(meh)
+
+    7         87500.000100 to         99999.999900 Hz:             0.000033 *(meh)
+
+    8        100000.000100 to        112499.999900 Hz:             0.000670 *(meh)
+
+    9        112500.000100 to        124999.999900 Hz:             0.144065 *************(WOW)
+
+   10        125000.000100 to        137499.999900 Hz:             0.474528 ****************************************(WOW)
+
+   11        137500.000100 to        149999.999900 Hz:             0.076179 *******(meh)
+
+   12        150000.000100 to        162499.999900 Hz:             0.000111 *(meh)
+   13        162500.000100 to        174999.999900 Hz:             0.000031 *(meh)
+   14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
+   15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
+Resource usages (all threads):
+User time        11.200630 seconds
+System time      0.007095 seconds
+Page faults      1378
+Page swaps       0
+Blocks of I/O    0
+Signals caught   0
+Context switches 35
+Analysis took 11.254546 seconds
+POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
+type:     Binary
+file:     /home/cs213lab/HANDOUT/alien_msg.sig
+Fs:       400000.000000 Hz
+order:    32
+bands:    16
+threads:  2
+procs:    2
+Load or map file
+Read 12000000 samples
+work: [8, 8]
+ginfo.block: [0, 8, 16]
+Removing DC component of -0.000372
+signal average power:     1.904742
+(0) Resource usages (thread 0):
+(0) User time        5.645518 seconds
+(0) System time      0.040685 seconds
+(0) Page faults      38672
+(0) Page swaps       0
+(0) Blocks of I/O    0
+(0) Signals caught   0
+(0) Context switches 11
+(1) Resource usages (thread 1):
+(1) User time        7.828369 seconds
+(1) System time      0.053852 seconds
+(1) Page faults      6188
+(1) Page swaps       0
+(1) Blocks of I/O    0
+(1) Signals caught   0
+(1) Context switches 4
+    0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
+    1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
+    2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
+    3         37500.000100 to         49999.999900 Hz:             0.002837 *(meh)
+    4         50000.000100 to         62499.999900 Hz:             0.000835 *(meh)
+
+    5         62500.000100 to         74999.999900 Hz:             0.000040 *(meh)
+
+    6         75000.000100 to         87499.999900 Hz:             0.000020 *(meh)
+
+    7         87500.000100 to         99999.999900 Hz:             0.000033 *(meh)
+
+    8        100000.000100 to        112499.999900 Hz:             0.000670 *(meh)
+
+    9        112500.000100 to        124999.999900 Hz:             0.144065 *************(WOW)
+
+   10        125000.000100 to        137499.999900 Hz:             0.474528 ****************************************(WOW)
+
+   11        137500.000100 to        149999.999900 Hz:             0.076179 *******(meh)
+
+   12        150000.000100 to        162499.999900 Hz:             0.000111 *(meh)
+   13        162500.000100 to        174999.999900 Hz:             0.000031 *(meh)
+   14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
+   15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
+Resource usages (all threads):
+User time        13.474817 seconds
+System time      0.095102 seconds
+Page faults      44889
+Page swaps       0
+Blocks of I/O    0
+Signals caught   0
+Context switches 19
+Analysis took 7.904390 seconds
+POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
+type:     Binary
+file:     /home/cs213lab/HANDOUT/alien_msg.sig
+Fs:       400000.000000 Hz
+order:    32
+bands:    16
+threads:  4
+procs:    4
+Load or map file
+Read 12000000 samples
+work: [4, 4, 4, 4]
+ginfo.block: [0, 4, 8, 12, 16]
+Removing DC component of -0.000372
+signal average power:     1.904742
+(3) Resource usages (thread 3):
+(3) User time        2.854019 seconds
+(3) System time      0.021887 seconds
+(3) Page faults      8639
+(3) Page swaps       0
+(3) Blocks of I/O    0
+(3) Signals caught   0
+(3) Context switches 8
+(2) Resource usages (thread 2):
+(2) User time        2.845945 seconds
+(2) System time      0.030773 seconds
+(2) Page faults      21770
+(2) Page swaps       0
+(2) Blocks of I/O    0
+(2) Signals caught   0
+(2) Context switches 801
+(0) Resource usages (thread 0):
+(0) User time        2.863536 seconds
+(0) System time      0.012897 seconds
+(0) Page faults      12756
+(0) Page swaps       0
+(0) Blocks of I/O    0
+(0) Signals caught   0
+(0) Context switches 764
+(1) Resource usages (thread 1):
+(1) User time        2.929200 seconds
+(1) System time      0.004972 seconds
+(1) Page faults      591
+(1) Page swaps       0
+(1) Blocks of I/O    0
+(1) Signals caught   0
+(1) Context switches 8
+    0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
+    1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
+    2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
+    3         37500.000100 to         49999.999900 Hz:             0.002837 *(meh)
+    4         50000.000100 to         62499.999900 Hz:             0.000835 *(meh)
+
+    5         62500.000100 to         74999.999900 Hz:             0.000040 *(meh)
+
+    6         75000.000100 to         87499.999900 Hz:             0.000020 *(meh)
+
+    7         87500.000100 to         99999.999900 Hz:             0.000033 *(meh)
+
+    8        100000.000100 to        112499.999900 Hz:             0.000670 *(meh)
+
+    9        112500.000100 to        124999.999900 Hz:             0.144065 *************(WOW)
+
+   10        125000.000100 to        137499.999900 Hz:             0.474528 ****************************************(WOW)
+
+   11        137500.000100 to        149999.999900 Hz:             0.076179 *******(meh)
+
+   12        150000.000100 to        162499.999900 Hz:             0.000111 *(meh)
+   13        162500.000100 to        174999.999900 Hz:             0.000031 *(meh)
+   14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
+   15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
+Resource usages (all threads):
+User time        11.494840 seconds
+System time      0.072004 seconds
+Page faults      43791
+Page swaps       0
+Blocks of I/O    0
+Signals caught   0
+Context switches 1587
+Analysis took 2.944995 seconds
+POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
+type:     Binary
+file:     /home/cs213lab/HANDOUT/alien_msg.sig
+Fs:       400000.000000 Hz
+order:    32
+bands:    16
+threads:  8
+procs:    8
+Load or map file
+Read 12000000 samples
+work: [2, 2, 2, 2, 2, 2, 2, 2]
+ginfo.block: [0, 2, 4, 6, 8, 10, 12, 14, 16]
+Removing DC component of -0.000372
+signal average power:     1.904742
+(7) Resource usages (thread 7):
+(7) User time        1.424074 seconds
+(7) System time      0.059089 seconds
+(7) Page faults      12727
+(7) Page swaps       0
+(7) Blocks of I/O    0
+(7) Signals caught   0
+(7) Context switches 4312
+(4) Resource usages (thread 4):
+(4) User time        1.444264 seconds
+(4) System time      0.030440 seconds
+(4) Page faults      12028
+(4) Page swaps       0
+(4) Blocks of I/O    0
+(4) Signals caught   0
+(4) Context switches 4032
+(0) Resource usages (thread 0):
+(0) User time        1.470170 seconds
+(0) System time      0.014446 seconds
+(0) Page faults      4359
+(0) Page swaps       0
+(0) Blocks of I/O    0
+(0) Signals caught   0
+(0) Context switches 1287
+(6) Resource usages (thread 6):
+(6) User time        1.444424 seconds
+(6) System time      0.034257 seconds
+(6) Page faults      9913
+(6) Page swaps       0
+(6) Blocks of I/O    0
+(6) Signals caught   0
+(6) Context switches 3423
+(5) Resource usages (thread 5):
+(5) User time        1.405354 seconds
+(5) System time      0.078841 seconds
+(5) Page faults      13126
+(5) Page swaps       0
+(5) Blocks of I/O    0
+(5) Signals caught   0
+(5) Context switches 4236
+(3) Resource usages (thread 3):
+(3) User time        1.435616 seconds
+(3) System time      0.048378 seconds
+(3) Page faults      10670
+(3) Page swaps       0
+(3) Blocks of I/O    0
+(3) Signals caught   0
+(3) Context switches 3708
+(1) Resource usages (thread 1):
+(1) User time        1.456029 seconds
+(1) System time      0.032568 seconds
+(1) Page faults      6655
+(1) Page swaps       0
+(1) Blocks of I/O    0
+(1) Signals caught   0
+(1) Context switches 2267
+(2) Resource usages (thread 2):
+(2) User time        1.446897 seconds
+(2) System time      0.028508 seconds
+(2) Page faults      12218
+(2) Page swaps       0
+(2) Blocks of I/O    0
+(2) Signals caught   0
+(2) Context switches 4168
+    0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
+    1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
+    2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
+    3         37500.000100 to         49999.999900 Hz:             0.002837 *(meh)
+    4         50000.000100 to         62499.999900 Hz:             0.000835 *(meh)
+
+    5         62500.000100 to         74999.999900 Hz:             0.000040 *(meh)
+
+    6         75000.000100 to         87499.999900 Hz:             0.000020 *(meh)
+
+    7         87500.000100 to         99999.999900 Hz:             0.000033 *(meh)
+
+    8        100000.000100 to        112499.999900 Hz:             0.000670 *(meh)
+
+    9        112500.000100 to        124999.999900 Hz:             0.144065 *************(WOW)
+
+   10        125000.000100 to        137499.999900 Hz:             0.474528 ****************************************(WOW)
+
+   11        137500.000100 to        149999.999900 Hz:             0.076179 *******(meh)
+
+   12        150000.000100 to        162499.999900 Hz:             0.000111 *(meh)
+   13        162500.000100 to        174999.999900 Hz:             0.000031 *(meh)
+   14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
+   15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
+Resource usages (all threads):
+User time        11.528212 seconds
+System time      0.326893 seconds
+Page faults      81763
+Page swaps       0
+Blocks of I/O    0
+Signals caught   0
+Context switches 27468
+Analysis took 1.507884 seconds
+POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
