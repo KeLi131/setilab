@@ -140,7 +140,6 @@ int p_convolve_and_compute_power(int length, double input_signal[], int order,
 
   // if 1 or 0 threads available, reuse old solution
   if (num_conv_threads <= 1) {
-    printf("parallel bands; sequential convolutions\n");
     convolve_and_compute_power(length, input_signal, order, coeffs, power);
     return 0;
   }
@@ -275,16 +274,17 @@ int analyze_signal(signal *sig, int filter_order, int num_bands, double *lb,
 
   band_power = (double *)malloc(num_bands * sizeof(double));
 
-  // distribute threads btwn bands and convolutions?
+  // distribute threads btwn bands and convolutions - bottleneck
 
-  int num_band_threads, num_conv_threads;
-
-  if (num_threads <= 2) {
+  int num_band_threads = num_threads / 2;
+  if (num_band_threads < 1)
     num_band_threads = 1;
-    num_conv_threads = num_threads - 1;
-  } else {
-    num_band_threads = 1 > num_threads / 3 ? 1 : num_threads / 3;
-    num_conv_threads = num_threads - num_band_threads;
+
+  int num_conv_threads = (num_threads - num_band_threads) / num_band_threads;
+
+  if (num_conv_threads < 2) {
+    num_band_threads = num_threads;
+    num_conv_threads = 0;
   }
 
   for (int i = 0; i < num_band_threads; i++) {
