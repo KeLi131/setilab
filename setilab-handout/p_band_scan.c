@@ -122,7 +122,8 @@ void *convolution_worker(void *arg) {
     double cur_sum = 0;
     for (int j = conv_thread_args->order; j >= 0; j--) {
       if ((i - j) >= 0 && (i - j) < conv_thread_args->total_length) {
-        cur_sum += conv_thread_args->input_signal[i - j] * conv_thread_args->coeffs[j];
+        cur_sum +=
+            conv_thread_args->input_signal[i - j] * conv_thread_args->coeffs[j];
       }
     }
     local_pow_sum += cur_sum * cur_sum;
@@ -134,11 +135,12 @@ void *convolution_worker(void *arg) {
 }
 
 int p_convolve_and_compute_power(int length, double input_signal[], int order,
-                               double coeffs[], double *power,
-                               int num_conv_threads) {
+                                 double coeffs[], double *power,
+                                 int num_conv_threads) {
 
   // if 1 or 0 threads available, reuse old solution
   if (num_conv_threads <= 1) {
+    printf("parallel bands; sequential convolutions\n");
     convolve_and_compute_power(length, input_signal, order, coeffs, power);
     return 0;
   }
@@ -245,8 +247,8 @@ void *band_worker(void *arg) {
 
       // Convolve
       p_convolve_and_compute_power(sig->num_samples, sig->data, filter_order,
-                                 filter_coeffs, &(band_power[i]),
-                                 num_conv_threads);
+                                   filter_coeffs, &(band_power[i]),
+                                   num_conv_threads);
     }
   }
   // Done.  The master thread will sum up the partial sums
