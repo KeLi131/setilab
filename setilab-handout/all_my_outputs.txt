@@ -24,15 +24,15 @@ signal average power:     1.904742
    14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
    15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
 Resource usages:
-User time        5.853098 seconds
-System time      0.050688 seconds
-Page faults      41016
+User time        6.158942 seconds
+System time      0.012641 seconds
+Page faults      17281
 Page swaps       0
 Blocks of I/O    0
 Signals caught   0
-Context switches 22
+Context switches 12
 timing overhead is at least 20 cycles
-Analysis took 15352488142 cycles (5.497075 seconds) by cycle count, timing overhead=20 cycles
+Analysis took 16054722376 cycles (5.748515 seconds) by cycle count, timing overhead=20 cycles
 Note that cycle count only makes sense if the thread stayed on one core
-Analysis took 5.918730 seconds by basic timing
+Analysis took 6.189458 seconds by basic timing
 POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
