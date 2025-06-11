@@ -1,0 +1,6 @@
+declare -x KEEP_SLURM_WORK_DIR=false
+declare -x RENAMED_WORK_DIR_PATH=/home/hyw1445/mysetilab/setilab-handout/seti-run-$SLURM_JOB_ID-eval-2025-06-11T01:40:15-05:00
+declare -x SETI_GOLDEN_DIR=/home/cs213lab/seti-scripts-slurm
+declare -x SETI_HANDOUT_DIR=/home/cs213lab/HANDOUT
+declare -x PERL5LIB=/home/cs213lab/seti-scripts-slurm
+declare -x SETI_EVAL_TO_RUN='/home/cs213lab/seti-scripts-slurm/seti-eval -n "hyw1445_yus8813" -t "Group23" -k e9ab7198514be353c9cd6f05bf0a60c6 -a 2'
