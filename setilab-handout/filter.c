@@ -1,12 +1,12 @@
-#include <assert.h>
 #include <math.h>
-#include <pthread.h> // pthread api
-#include <stdio.h>
+#include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "filter.h"
 
-int generate_low_pass(double Fs, double Fc, int order, double coeffs[]) {
+int generate_low_pass(double Fs, double Fc,
+                      int order, double coeffs[]) {
   assert(order > 0 && !(order & 0x1));
   assert(Fs > 0 && Fc > 0 && Fc < Fs / 2);
 
@@ -16,15 +16,15 @@ int generate_low_pass(double Fs, double Fc, int order, double coeffs[]) {
     if (n == order / 2) {
       coeffs[n] = 2 * Ft;
     } else {
-      coeffs[n] =
-          sin(2 * M_PI * Ft * (n - order / 2)) / (M_PI * (n - order / 2));
+      coeffs[n] = sin(2 * M_PI * Ft * (n - order / 2)) / (M_PI * (n - order / 2));
     }
   }
 
   return 0;
 }
 
-int generate_high_pass(double Fs, double Fc, int order, double coeffs[]) {
+int generate_high_pass(double Fs, double Fc,
+                       int order, double coeffs[]) {
   assert(order > 0 && !(order & 0x1));
   assert(Fs > 0 && Fc > 0 && Fc < Fs / 2);
 
@@ -34,15 +34,14 @@ int generate_high_pass(double Fs, double Fc, int order, double coeffs[]) {
     if (n == order / 2) {
       coeffs[n] = 1 - 2 * Ft;
     } else {
-      coeffs[n] =
-          -sin(2 * M_PI * Ft * (n - order / 2)) / (M_PI * (n - order / 2));
+      coeffs[n] = -sin(2 * M_PI * Ft * (n - order / 2)) / (M_PI * (n - order / 2));
     }
   }
   return 0;
 }
 
-int generate_band_pass(double Fs, double Fcl, double Fch, int order,
-                       double coeffs[]) {
+int generate_band_pass(double Fs, double Fcl, double Fch,
+                       int order, double coeffs[]) {
   assert(order > 0 && !(order & 0x1));
   assert(Fs > 0 && Fcl > 0 && Fcl < Fs / 2 && Fch > 0 && Fch < Fs / 2);
 
@@ -53,16 +52,16 @@ int generate_band_pass(double Fs, double Fcl, double Fch, int order,
     if (n == order / 2) {
       coeffs[n] = 2 * (Fth - Ftl);
     } else {
-      coeffs[n] =
-          (sin(2 * M_PI * Fth * (n - order / 2)) / (M_PI * (n - order / 2))) -
-          (sin(2 * M_PI * Ftl * (n - order / 2)) / (M_PI * (n - order / 2)));
+      coeffs[n] = (sin(2 * M_PI * Fth * (n - order / 2)) / (M_PI * (n - order / 2))) -
+                  (sin(2 * M_PI * Ftl * (n - order / 2)) / (M_PI * (n - order / 2)));
     }
   }
   return 0;
 }
 
-int generate_band_stop(double Fs, double Fcl, double Fch, int order,
-                       double coeffs[]) {
+
+int generate_band_stop(double Fs, double Fcl, double Fch,
+                       int order, double coeffs[]) {
   assert(order > 0 && !(order & 0x1));
   assert(Fs > 0 && Fcl > 0 && Fcl < Fs / 2 && Fch > 0 && Fch < Fs / 2);
 
@@ -73,9 +72,8 @@ int generate_band_stop(double Fs, double Fcl, double Fch, int order,
     if (n == order / 2) {
       coeffs[n] = 1 - 2 * (Fth - Ftl);
     } else {
-      coeffs[n] =
-          (sin(2 * M_PI * Ftl * (n - order / 2)) / (M_PI * (n - order / 2))) -
-          (sin(2 * M_PI * Fth * (n - order / 2)) / (M_PI * (n - order / 2)));
+      coeffs[n] = (sin(2 * M_PI * Ftl * (n - order / 2)) / (M_PI * (n - order / 2))) -
+                  (sin(2 * M_PI * Fth * (n - order / 2)) / (M_PI * (n - order / 2)));
     }
   }
   return 0;
@@ -89,11 +87,13 @@ int hamming_window(int order, double coeffs[]) {
   }
 
   return 0;
+
 }
 
 // Simple (slow) convolution
 // output must be same length as input.  coeffs assumed to be
-int convolve(int length, double input_signal[], int order, double coeffs[],
+int convolve(int length, double input_signal[],
+             int order, double coeffs[],
              double output_signal[]) {
 
   for (int i = 0; i < length; i++) {
@@ -111,30 +111,31 @@ int convolve(int length, double input_signal[], int order, double coeffs[],
   return 0;
 }
 
+
 // Simple (slow) convolution combined with power estimate for output
-// feat: parallelizes individual convolutions given subset of threads
-int convolve_and_compute_power(int length, double input_signal[], int order,
-                               double coeffs[], double *power) {
+int convolve_and_compute_power(int length, double input_signal[],
+                               int order, double coeffs[],
+                               double* power) {
 
-    double pow_sum = 0;
+  double pow_sum = 0;
 
-    for (int i = 0; i < length; i++) {
-      double cur_sum = 0;
-      for (int j = order; j >= 0; j--) {
-        // Use coeff only if there is input signal
-        // that matches, otherwise assume input signal
-        // is zero (aperiodic model)
-        if ((i - j) >= 0 && (i - j) < length) {
-          // Causal model, use inputs up to this point
-          cur_sum += input_signal[i - j] * coeffs[j];
-        }
+  for (int i = 0; i < length; i++) {
+    double cur_sum = 0;
+    for (int j = order; j >= 0; j--) {
+      // Use coeff only if there is input signal
+      // that matches, otherwise assume input signal
+      // is zero (aperiodic model)
+      if ((i - j) >= 0 && (i - j) < length) {
+        // Causal model, use inputs up to this point
+        cur_sum += input_signal[i - j] * coeffs[j];
       }
-      pow_sum += cur_sum * cur_sum;
     }
+    pow_sum += cur_sum * cur_sum;
+  }
 
-    *power = pow_sum / length;
+  *power = pow_sum / length;
 
-    return 0;
+  return 0;
 }
 
 /* below taken from http://www.exstrom.com/journal/sigproc/liir.c */
@@ -169,18 +170,17 @@ int convolve_and_compute_power(int length, double input_signal[], int order,
  *       of the array is then 2n.
  */
 
-static double *binomial_mult(int n, double *p) {
+static double* binomial_mult(int n, double* p) {
 
-  double *a = (double *)calloc(2 * n, sizeof(double));
-  if (a == NULL) {
+  double* a = (double*)calloc(2 * n, sizeof(double) );
+  if ( a == NULL ) {
     return NULL;
   }
 
   for (int i = 0; i < n; ++i) {
     for (int j = i; j > 0; --j) {
-      a[2 * j] += p[2 * i] * a[2 * (j - 1)] - p[2 * i + 1] * a[2 * (j - 1) + 1];
-      a[2 * j + 1] +=
-          p[2 * i] * a[2 * (j - 1) + 1] + p[2 * i + 1] * a[2 * (j - 1)];
+      a[2 * j]     += p[2 * i] * a[2 * (j - 1)] - p[2 * i + 1] * a[2 * (j - 1) + 1];
+      a[2 * j + 1] += p[2 * i] * a[2 * (j - 1) + 1] + p[2 * i + 1] * a[2 * (j - 1)];
     }
     a[0] += p[2 * i];
     a[1] += p[2 * i + 1];
@@ -188,14 +188,15 @@ static double *binomial_mult(int n, double *p) {
   return a;
 }
 
+
 /**********************************************************************
  *  ccof_bwlp - calculates the c coefficients for a butterworth lowpass
  *  filter. The coefficients are returned as an array of doubles
  *
  */
-static double *ccof_bwlp(int n) {
+static double* ccof_bwlp(int n) {
 
-  double *ccof = (double *)calloc(n + 1, sizeof(double));
+  double* ccof = (double*)calloc(n + 1, sizeof(double));
   if (!ccof) {
     return NULL;
   }
@@ -204,47 +205,49 @@ static double *ccof_bwlp(int n) {
   ccof[1] = (double)n;
   int m = n / 2;
   for (int i = 2; i <= m; ++i) {
-    ccof[i] = (double)((n - i + 1) * ccof[i - 1] / i);
+    ccof[i]     = (double)((n - i + 1) * ccof[i - 1] / i);
     ccof[n - i] = ccof[i];
   }
 
   ccof[n - 1] = (double)n;
-  ccof[n] = 1.0;
+  ccof[n]     = 1.0;
 
   return ccof;
 }
+
+
 
 /**********************************************************************
  *  dcof_bwlp - calculates the d coefficients for a butterworth lowpass
  *  filter. The coefficients are returned as an array of doubles.
  *
  */
-static double *dcof_bwlp(int n, double fcf) {
-  double theta; // M_PI * fcf / 2.0
-  double st;    // sine of theta
-  double ct;    // cosine of theta
-  double parg;  // pole angle
-  double sparg; // sine of the pole angle
-  double cparg; // cosine of the pole angle
-  double a;     // workspace variable
-  double *rcof; // binomial coefficients
-  double *dcof; // dk coefficients
+static double* dcof_bwlp(int n, double fcf) {
+  double theta;       // M_PI * fcf / 2.0
+  double st;          // sine of theta
+  double ct;          // cosine of theta
+  double parg;        // pole angle
+  double sparg;       // sine of the pole angle
+  double cparg;       // cosine of the pole angle
+  double a;           // workspace variable
+  double* rcof;       // binomial coefficients
+  double* dcof;       // dk coefficients
 
-  rcof = (double *)calloc(2 * n, sizeof(double));
+  rcof = (double*)calloc(2 * n, sizeof(double));
   if (!rcof) {
     return NULL;
   }
 
   theta = M_PI * fcf;
-  st = sin(theta);
-  ct = cos(theta);
+  st    = sin(theta);
+  ct    = cos(theta);
 
   for (int k = 0; k < n; ++k) {
-    parg = M_PI * (double)(2 * k + 1) / (double)(2 * n);
-    sparg = sin(parg);
-    cparg = cos(parg);
-    a = 1.0 + st * sparg;
-    rcof[2 * k] = -ct / a;
+    parg            = M_PI * (double)(2 * k + 1) / (double)(2 * n);
+    sparg           = sin(parg);
+    cparg           = cos(parg);
+    a               = 1.0 + st * sparg;
+    rcof[2 * k]     = -ct / a;
     rcof[2 * k + 1] = -st * cparg / a;
   }
 
@@ -268,14 +271,14 @@ static double *dcof_bwlp(int n, double fcf) {
  */
 
 static double sf_bwlp(int n, double fcf) {
-  double omega;  // M_PI * fcf
-  double fomega; // function of omega
-  double parg0;  // zeroth pole angle
-  double sf;     // scaling factor
+  double omega;       // M_PI * fcf
+  double fomega;      // function of omega
+  double parg0;       // zeroth pole angle
+  double sf;          // scaling factor
 
-  omega = M_PI * fcf;
+  omega  = M_PI * fcf;
   fomega = sin(omega);
-  parg0 = M_PI / (double)(2 * n);
+  parg0  = M_PI / (double)(2 * n);
 
   sf = 1.0;
   for (int k = 0; k < n / 2; ++k) {
@@ -293,6 +296,7 @@ static double sf_bwlp(int n, double fcf) {
   return sf;
 }
 
+
 /* butterworth lowpass filter. numerator coefficients
  * returned in b, denominator coefficients in a
  * n is order
@@ -303,7 +307,7 @@ static double sf_bwlp(int n, double fcf) {
  *
  * NOTE: this has been validated against matlab's output
  */
-void butter(int n, double fcf, double **b, double **a) {
+void butter(int n, double fcf, double** b, double** a) {
 
   /* get numerator coffs */
   *b = ccof_bwlp(n);
@@ -325,12 +329,15 @@ void butter(int n, double fcf, double **b, double **a) {
   for (int i = 0; i < n + 1; i++) {
     (*b)[i] *= sf;
   }
+
 }
+
 
 /* apply a butterworth filter (both sets of coefficients)
  * y = filter(b, a, x)
  */
-void filter(int ord, double *a, double *b, int np, double *x, double *y) {
+void filter(int ord, double* a, double* b,
+            int np, double* x, double* y) {
 
   y[0] = b[0] * x[0];
 
@@ -343,7 +350,7 @@ void filter(int ord, double *a, double *b, int np, double *x, double *y) {
     }
 
     for (int j = 0; j < i; j++) {
-      y[i] -= a[j + 1] * y[i - j - 1];
+      y[i] -=  a[j + 1] * y[i - j - 1];
     }
   }
 
@@ -363,7 +370,8 @@ void filter(int ord, double *a, double *b, int np, double *x, double *y) {
 }
 
 /* y = filtfilt(b, a, x) */
-void filtfilt(int ord, double *a, double *b, int np, double *x, double *y) {
+void filtfilt(int ord, double* a, double* b,
+              int np, double* x, double* y) {
 
   filter(ord, a, b, np, x, y);
 
@@ -383,3 +391,4 @@ void filtfilt(int ord, double *a, double *b, int np, double *x, double *y) {
     y[i] = x[i];
   }
 }
+
