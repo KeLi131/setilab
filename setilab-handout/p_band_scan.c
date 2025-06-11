@@ -279,12 +279,15 @@ int analyze_signal(signal *sig, int filter_order, int num_bands, double *lb,
 
   int num_band_threads, num_conv_threads;
 
-  num_band_threads = num_threads / 2;
-  if (num_band_threads < 1)
+  if (num_threads <= 2) {
     num_band_threads = 1;
-  num_conv_threads = num_threads - num_band_threads;
+    num_conv_threads = num_threads - 1;
+  } else {
+    num_band_threads = 1 > num_threads / 3 ? 1 : num_threads / 3;
+    num_conv_threads = num_threads - num_band_threads;
+  }
 
-  for (int i = 0; i < num_threads; i++) {
+  for (int i = 0; i < num_band_threads; i++) {
 
     // generate_band_pass_args_t *generate_band_pass_args =
     // (generate_band_pass_args_t *)malloc(sizeof(generate_band_pass_args_t));
@@ -337,7 +340,7 @@ int analyze_signal(signal *sig, int filter_order, int num_bands, double *lb,
     }
   }
 
-  int i_max = (num_threads < num_bands) ? num_threads : num_bands;
+  int i_max = (num_band_threads < num_bands) ? num_band_threads : num_bands;
   // now we will join all the threads
   for (int i = 0; i < i_max; i++) {
     int returncode = pthread_join(tid[i], NULL);

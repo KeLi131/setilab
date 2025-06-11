@@ -12,13 +12,13 @@ ginfo.block: [0, 16]
 Removing DC component of -0.000372
 signal average power:     1.904742
 (0) Resource usages (thread 0):
-(0) User time        11.388071 seconds
-(0) System time      0.037906 seconds
-(0) Page faults      48808
+(0) User time        11.024596 seconds
+(0) System time      0.019826 seconds
+(0) Page faults      2882
 (0) Page swaps       0
 (0) Blocks of I/O    0
 (0) Signals caught   0
-(0) Context switches 58
+(0) Context switches 48
     0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
     1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
     2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
@@ -44,14 +44,14 @@ signal average power:     1.904742
    14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
    15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
 Resource usages (all threads):
-User time        11.389451 seconds
-System time      0.037682 seconds
-Page faults      48837
+User time        11.025886 seconds
+System time      0.019597 seconds
+Page faults      2911
 Page swaps       0
 Blocks of I/O    0
 Signals caught   0
-Context switches 60
-Analysis took 11.455339 seconds
+Context switches 50
+Analysis took 11.076409 seconds
 POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
 type:     Binary
 file:     /home/cs213lab/HANDOUT/alien_msg.sig
@@ -67,21 +67,21 @@ ginfo.block: [0, 8, 16]
 Removing DC component of -0.000372
 signal average power:     1.904742
 (1) Resource usages (thread 1):
-(1) User time        5.617967 seconds
-(1) System time      0.094758 seconds
-(1) Page faults      21144
+(1) User time        5.500828 seconds
+(1) System time      0.002991 seconds
+(1) Page faults      894
 (1) Page swaps       0
 (1) Blocks of I/O    0
 (1) Signals caught   0
-(1) Context switches 8
+(1) Context switches 7
 (0) Resource usages (thread 0):
-(0) User time        5.735333 seconds
-(0) System time      0.022363 seconds
-(0) Page faults      7897
+(0) User time        5.508819 seconds
+(0) System time      0.000991 seconds
+(0) Page faults      15
 (0) Page swaps       0
 (0) Blocks of I/O    0
 (0) Signals caught   0
-(0) Context switches 1922
+(0) Context switches 15
     0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
     1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
     2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
@@ -107,14 +107,14 @@ signal average power:     1.904742
    14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
    15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
 Resource usages (all threads):
-User time        11.354107 seconds
-System time      0.117399 seconds
-Page faults      29072
+User time        11.010349 seconds
+System time      0.005376 seconds
+Page faults      941
 Page swaps       0
 Blocks of I/O    0
 Signals caught   0
-Context switches 1933
-Analysis took 5.797923 seconds
+Context switches 25
+Analysis took 5.525913 seconds
 POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
 type:     Binary
 file:     /home/cs213lab/HANDOUT/alien_msg.sig
@@ -130,37 +130,37 @@ ginfo.block: [0, 4, 8, 12, 16]
 Removing DC component of -0.000372
 signal average power:     1.904742
 (3) Resource usages (thread 3):
-(3) User time        2.838763 seconds
-(3) System time      0.040740 seconds
-(3) Page faults      11167
+(3) User time        2.871620 seconds
+(3) System time      0.000000 seconds
+(3) Page faults      442
 (3) Page swaps       0
 (3) Blocks of I/O    0
 (3) Signals caught   0
-(3) Context switches 1967
-(1) Resource usages (thread 1):
-(1) User time        2.836266 seconds
-(1) System time      0.046530 seconds
-(1) Page faults      9884
-(1) Page swaps       0
-(1) Blocks of I/O    0
-(1) Signals caught   0
-(1) Context switches 1920
-(0) Resource usages (thread 0):
-(0) User time        2.874180 seconds
-(0) System time      0.008852 seconds
-(0) Page faults      3397
-(0) Page swaps       0
-(0) Blocks of I/O    0
-(0) Signals caught   0
-(0) Context switches 1047
+(3) Context switches 4
 (2) Resource usages (thread 2):
-(2) User time        2.885592 seconds
-(2) System time      0.027554 seconds
-(2) Page faults      14560
+(2) User time        2.883778 seconds
+(2) System time      0.021104 seconds
+(2) Page faults      3
 (2) Page swaps       0
 (2) Blocks of I/O    0
 (2) Signals caught   0
-(2) Context switches 3839
+(2) Context switches 9
+(1) Resource usages (thread 1):
+(1) User time        2.932491 seconds
+(1) System time      0.000000 seconds
+(1) Page faults      8
+(1) Page swaps       0
+(1) Blocks of I/O    0
+(1) Signals caught   0
+(1) Context switches 3
+(0) Resource usages (thread 0):
+(0) User time        2.921571 seconds
+(0) System time      0.019195 seconds
+(0) Page faults      17
+(0) Page swaps       0
+(0) Blocks of I/O    0
+(0) Signals caught   0
+(0) Context switches 3
     0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
     1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
     2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
@@ -186,14 +186,14 @@ signal average power:     1.904742
    14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
    15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
 Resource usages (all threads):
-User time        11.436875 seconds
-System time      0.124502 seconds
-Page faults      39043
+User time        11.611262 seconds
+System time      0.040748 seconds
+Page faults      506
 Page swaps       0
 Blocks of I/O    0
 Signals caught   0
-Context switches 8782
-Analysis took 2.939597 seconds
+Context switches 24
+Analysis took 2.970302 seconds
 POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
 type:     Binary
 file:     /home/cs213lab/HANDOUT/alien_msg.sig
@@ -208,70 +208,70 @@ work: [2, 2, 2, 2, 2, 2, 2, 2]
 ginfo.block: [0, 2, 4, 6, 8, 10, 12, 14, 16]
 Removing DC component of -0.000372
 signal average power:     1.904742
-(0) Resource usages (thread 0):
-(0) User time        1.416927 seconds
-(0) System time      0.001996 seconds
-(0) Page faults      11
-(0) Page swaps       0
-(0) Blocks of I/O    0
-(0) Signals caught   0
-(0) Context switches 6
-(4) Resource usages (thread 4):
-(4) User time        1.421624 seconds
-(4) System time      0.002984 seconds
-(4) Page faults      10
-(4) Page swaps       0
-(4) Blocks of I/O    0
-(4) Signals caught   0
-(4) Context switches 4
-(6) Resource usages (thread 6):
-(6) User time        1.430677 seconds
-(6) System time      0.000978 seconds
-(6) Page faults      2
-(6) Page swaps       0
-(6) Blocks of I/O    0
-(6) Signals caught   0
-(6) Context switches 3
+(3) Resource usages (thread 3):
+(3) User time        1.460017 seconds
+(3) System time      0.009850 seconds
+(3) Page faults      2179
+(3) Page swaps       0
+(3) Blocks of I/O    0
+(3) Signals caught   0
+(3) Context switches 877
+(2) Resource usages (thread 2):
+(2) User time        1.439342 seconds
+(2) System time      0.019307 seconds
+(2) Page faults      4570
+(2) Page swaps       0
+(2) Blocks of I/O    0
+(2) Signals caught   0
+(2) Context switches 1131
 (5) Resource usages (thread 5):
-(5) User time        1.450415 seconds
+(5) User time        1.476873 seconds
 (5) System time      0.000000 seconds
-(5) Page faults      2
+(5) Page faults      4
 (5) Page swaps       0
 (5) Blocks of I/O    0
 (5) Signals caught   0
 (5) Context switches 4
-(1) Resource usages (thread 1):
-(1) User time        1.451457 seconds
-(1) System time      0.000000 seconds
-(1) Page faults      10
-(1) Page swaps       0
-(1) Blocks of I/O    0
-(1) Signals caught   0
-(1) Context switches 2
-(2) Resource usages (thread 2):
-(2) User time        1.468587 seconds
-(2) System time      0.000000 seconds
-(2) Page faults      2
-(2) Page swaps       0
-(2) Blocks of I/O    0
-(2) Signals caught   0
-(2) Context switches 3
-(3) Resource usages (thread 3):
-(3) User time        1.480322 seconds
-(3) System time      0.000000 seconds
-(3) Page faults      2
-(3) Page swaps       0
-(3) Blocks of I/O    0
-(3) Signals caught   0
-(3) Context switches 2
+(6) Resource usages (thread 6):
+(6) User time        1.466506 seconds
+(6) System time      0.008622 seconds
+(6) Page faults      2
+(6) Page swaps       0
+(6) Blocks of I/O    0
+(6) Signals caught   0
+(6) Context switches 4
 (7) Resource usages (thread 7):
-(7) User time        2.719238 seconds
-(7) System time      0.000000 seconds
-(7) Page faults      429
+(7) User time        1.466693 seconds
+(7) System time      0.014830 seconds
+(7) Page faults      2628
 (7) Page swaps       0
 (7) Blocks of I/O    0
 (7) Signals caught   0
-(7) Context switches 6
+(7) Context switches 827
+(0) Resource usages (thread 0):
+(0) User time        1.469973 seconds
+(0) System time      0.015152 seconds
+(0) Page faults      9
+(0) Page swaps       0
+(0) Blocks of I/O    0
+(0) Signals caught   0
+(0) Context switches 9
+(1) Resource usages (thread 1):
+(1) User time        1.485627 seconds
+(1) System time      0.011856 seconds
+(1) Page faults      2497
+(1) Page swaps       0
+(1) Blocks of I/O    0
+(1) Signals caught   0
+(1) Context switches 879
+(4) Resource usages (thread 4):
+(4) User time        2.648220 seconds
+(4) System time      0.018619 seconds
+(4) Page faults      5926
+(4) Page swaps       0
+(4) Blocks of I/O    0
+(4) Signals caught   0
+(4) Context switches 4
     0             0.000100 to         12499.999900 Hz:             0.002983 *(meh)
     1         12500.000100 to         24999.999900 Hz:             0.000251 *(meh)
     2         25000.000100 to         37499.999900 Hz:             0.002199 *(meh)
@@ -297,12 +297,12 @@ signal average power:     1.904742
    14        175000.000100 to        187499.999900 Hz:             0.000020 *(meh)
    15        187500.000100 to        199999.999900 Hz:             0.000027 *(meh)
 Resource usages (all threads):
-User time        12.843221 seconds
-System time      0.006310 seconds
-Page faults      518
+User time        12.918487 seconds
+System time      0.098549 seconds
+Page faults      17867
 Page swaps       0
 Blocks of I/O    0
 Signals caught   0
-Context switches 43
-Analysis took 2.727416 seconds
+Context switches 3746
+Analysis took 2.689405 seconds
 POSSIBLE ALIENS 112500.000100-137499.999900 HZ (CENTER 125000.000000 HZ)
